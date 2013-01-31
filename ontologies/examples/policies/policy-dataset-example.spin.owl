@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:prov-policies="http://www.policygrid.org/prov-policies#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:policy-dataset-example="http://example.org/policy-dataset-example#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://example.org/policy-dataset-example">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://example.org/dataset-example.owl"/>
+    <owl:imports rdf:resource="http://www.policygrid.org/prov-policies"/>
+  </owl:Ontology>
+  <rdf:Description rdf:about="http://example.org/dataset-example.owl#Dataset">
+    <prov-policies:hasConditionRule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LocationConditionRule</rdfs:comment>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="http://www.policygrid.org/prov-policies#InformationRequest"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >date</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#onDate"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >resource</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requestAboutResource"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="http://example.org/dataset-example.owl#Location"/>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requireProperty"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object>
+              <prov-policies:Policy rdf:ID="location_policy">
+                <prov-policies:policyTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Dataset documentation policy</prov-policies:policyTitle>
+                <prov-policies:hasAuthority>
+                  <prov-policies:Authority rdf:ID="Authority_Edoardo"/>
+                </prov-policies:hasAuthority>
+              </prov-policies:Policy>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnPolicy"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object>
+              <prov-policies:Obligation rdf:ID="LocationObligationCondition">
+                <prov-policies:hasRule>
+                  <sp:Construct>
+                    <sp:where rdf:parseType="Collection">
+                      <rdf:Description>
+                        <sp:subject rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >policy</sp:varName>
+                        </sp:subject>
+                        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#activePolicy"/>
+                        <sp:object rdf:resource="#location_policy"/>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:subject rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >policy</sp:varName>
+                        </sp:subject>
+                        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnEvent"/>
+                        <sp:object rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >up</sp:varName>
+                        </sp:object>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:subject rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >resource</sp:varName>
+                        </sp:subject>
+                        <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+                        <sp:object rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >up</sp:varName>
+                        </sp:object>
+                      </rdf:Description>
+                      <sp:NotExists>
+                        <sp:elements rdf:parseType="Collection">
+                          <rdf:Description>
+                            <sp:subject rdf:parseType="Resource">
+                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >resource</sp:varName>
+                            </sp:subject>
+                            <sp:predicate rdf:resource="http://example.org/dataset-example.owl#Location"/>
+                            <sp:object rdf:parseType="Resource">
+                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >x</sp:varName>
+                            </sp:object>
+                          </rdf:Description>
+                        </sp:elements>
+                      </sp:NotExists>
+                      <sp:NotExists>
+                        <sp:elements rdf:parseType="Collection">
+                          <rdf:Description>
+                            <sp:subject rdf:parseType="Resource">
+                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >ar</sp:varName>
+                            </sp:subject>
+                            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requestAboutResource"/>
+                            <sp:object rdf:parseType="Resource">
+                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >resource</sp:varName>
+                            </sp:object>
+                          </rdf:Description>
+                          <rdf:Description>
+                            <sp:subject rdf:parseType="Resource">
+                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >ar</sp:varName>
+                            </sp:subject>
+                            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                            <sp:object rdf:resource="http://www.policygrid.org/prov-policies#InformationRequest"/>
+                          </rdf:Description>
+                          <rdf:Description>
+                            <sp:subject rdf:parseType="Resource">
+                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >ar</sp:varName>
+                            </sp:subject>
+                            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requireProperty"/>
+                            <sp:object rdf:resource="http://example.org/dataset-example.owl#Location"/>
+                          </rdf:Description>
+                        </sp:elements>
+                      </sp:NotExists>
+                    </sp:where>
+                    <sp:templates rdf:parseType="Collection">
+                      <rdf:Description>
+                        <sp:subject rdf:nodeID="A1"/>
+                        <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                        <sp:object rdf:resource="http://www.policygrid.org/prov-policies#InformationRequest"/>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:subject rdf:nodeID="A1"/>
+                        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#onDate"/>
+                        <sp:object rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >date</sp:varName>
+                        </sp:object>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:subject rdf:nodeID="A1"/>
+                        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requestAboutResource"/>
+                        <sp:object rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >resource</sp:varName>
+                        </sp:object>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:subject rdf:nodeID="A1"/>
+                        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requireProperty"/>
+                        <sp:object rdf:resource="http://example.org/dataset-example.owl#Location"/>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:subject rdf:nodeID="A1"/>
+                        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnPolicy"/>
+                        <sp:object rdf:resource="#location_policy"/>
+                      </rdf:Description>
+                    </sp:templates>
+                    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >LocationConditionRule</rdfs:comment>
+                  </sp:Construct>
+                </prov-policies:hasRule>
+              </prov-policies:Obligation>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnPolicyCondition"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="#location_policy"/>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#activePolicy"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >policy</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >up</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnEvent"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >policy</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >up</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >resource</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://example.org/dataset-example.owl#Location"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >resource</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >resource</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requestAboutResource"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ar</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:object rdf:resource="http://www.policygrid.org/prov-policies#InformationRequest"/>
+                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ar</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:object rdf:resource="http://example.org/dataset-example.owl#Location"/>
+                <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#requireProperty"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ar</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+      </sp:Construct>
+    </prov-policies:hasConditionRule>
+  </rdf:Description>
+  <prov-policies:ActivationCondition rdf:ID="DatasetDocumentationCondition"/>
+  <rdf:Description rdf:about="http://www.policygrid.org/action.owl#StateChangeAction">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
+  </rdf:Description>
+  <sp:Construct rdf:ID="Construct_1"/>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:first rdf:parseType="Resource">
+      <sp:object>UKDA Artifact policy</sp:object>
+      <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#policyTitle"/>
+      <sp:subject rdf:resource="#location_policy"/>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <sp:object rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >up</sp:varName>
+    </sp:object>
+    <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnEvent"/>
+    <sp:subject rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >activation</sp:varName>
+    </sp:subject>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >date</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >res</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >up</sp:varName>
+      </sp:object>
+      <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#basedOnEvent"/>
+      <sp:subject rdf:nodeID="A7"/>
+    </rdf:first>
+    <rdf:rest rdf:nodeID="A2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <sp:object rdf:nodeID="A4"/>
+    <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#onDate"/>
+    <sp:subject rdf:nodeID="A7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <rdf:first rdf:nodeID="A8"/>
+    <rdf:rest rdf:nodeID="A6"/>
+  </rdf:Description>
+  <sp:NotExists rdf:nodeID="A10">
+    <sp:elements rdf:parseType="Collection">
+      <rdf:Description>
+        <sp:object rdf:resource="#location_policy"/>
+        <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#activePolicy"/>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >activation</sp:varName>
+        </sp:subject>
+      </rdf:Description>
+      <rdf:Description rdf:nodeID="A3"/>
+    </sp:elements>
+  </sp:NotExists>
+  <rdf:Description rdf:nodeID="A11">
+    <rdf:rest rdf:parseType="Collection">
+      <sp:NotExists rdf:nodeID="A10"/>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:resource="http://www.policygrid.org/action.owl#UploadResource"/>
+      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >up</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >up</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <sp:object rdf:nodeID="A12"/>
+    <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    <sp:subject rdf:nodeID="A5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <sp:object rdf:resource="#location_policy"/>
+    <sp:predicate rdf:resource="http://www.policygrid.org/prov-policies#activePolicy"/>
+    <sp:subject rdf:nodeID="A7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.policygrid.org/prov-policies#Policy">
+    <prov-policies:hasActivationRule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Activate the policy when a new resouce is about to be uploaded in the system</rdfs:comment>
+        <sp:templates rdf:parseType="Resource">
+          <rdf:first rdf:parseType="Resource">
+            <sp:object rdf:resource="http://www.policygrid.org/prov-policies#PolicyActivation"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:nodeID="A7"/>
+          </rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:nodeID="A14"/>
+            <rdf:rest rdf:nodeID="A9"/>
+          </rdf:rest>
+        </sp:templates>
+        <sp:where rdf:parseType="Resource">
+          <rdf:rest rdf:nodeID="A11"/>
+          <rdf:first rdf:nodeID="A13"/>
+        </sp:where>
+      </sp:Construct>
+    </prov-policies:hasActivationRule>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

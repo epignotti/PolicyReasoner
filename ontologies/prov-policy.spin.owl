@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.policygrid.org/prov-policies#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://www.policygrid.org/prov-policies">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="file:/Users/epignott/Documents/workspace/PolicyReasoner/ontologies/prov-o.n3"/>
+    <owl:imports rdf:resource="http://spinrdf.org/sp"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="NLGActionRequest">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ActionRequest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Permission">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PolicyCondition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Policy">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ActionRequest">
+    <spin:rule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >A policy reasoning activity used a policy condition</rdfs:comment>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polCond</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polRis</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polCond</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="basedOnPolicyCondition"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polRis</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >polCond</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >polRis</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >A policy reasoning activity is created when a new Action Request is assested</rdfs:comment>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object>
+              <owl:Class rdf:ID="PolicyReasoning"/>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pol</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pol</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="basedOnPolicy"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object>
+                  <owl:Class rdf:about="#PolicyReasoning"/>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >proc</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >pol</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >prov</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NLGRetractionRequest">
+    <rdfs:subClassOf rdf:resource="#NLGActionRequest"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PolicyActivation">
+    <spin:rule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >A policy activation used a policy</rdfs:comment>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pol</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pol</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="activePolicy"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >pol</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >A policy activation is attributed to the agent representing the policy authority where the activation was attributed to</rdfs:comment>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >agent</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pol</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#activePolicy"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >agent</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="hasAuthority"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pol</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >agent</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PolicyReasoning">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Authority">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Obligation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PolicyCondition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Prohibition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PolicyCondition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NLGAssertionRequest">
+    <rdfs:subClassOf rdf:resource="#NLGActionRequest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PolicyCondition">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="InformationRequest">
+    <spin:rule>
+      <sp:Construct>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >The policy resoining process used an entity if the information request requires to change it</rdfs:comment>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >res</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#used"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polris</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polris</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="#PolicyReasoning"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >polris</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >res</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="requestAboutResource"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <rdfs:subClassOf rdf:resource="#ActionRequest"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ActivationCondition">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="requireInformationItem">
+    <rdfs:domain rdf:resource="#InformationRequest"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="requireTriplePart">
+    <rdfs:domain rdf:resource="#NLGActionRequest"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#basedOnPolicy">
+    <rdfs:range rdf:resource="#Policy"/>
+    <rdfs:domain rdf:resource="#ActionRequest"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#requestAboutResource">
+    <rdfs:domain rdf:resource="#ActionRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="wasInfluencedBy">
+    <rdfs:range rdf:resource="#Policy"/>
+    <rdfs:domain rdf:resource="http://openprovenance.org/ontology#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasActivation">
+    <rdfs:range rdf:resource="#ActivationCondition"/>
+    <rdfs:domain rdf:resource="#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="basedOnEvent">
+    <rdfs:range rdf:resource="http://www.policygrid.org/action.owl#QueryAction"/>
+    <rdfs:range rdf:resource="http://www.policygrid.org/action.owl#SystemAction"/>
+    <rdfs:range rdf:resource="http://www.policygrid.org/action.owl#CommunicationAction"/>
+    <rdfs:range rdf:resource="http://www.policygrid.org/action.owl#ResourceAction"/>
+    <rdfs:range rdf:resource="http://www.policygrid.org/action.owl#UserAction"/>
+    <rdfs:range rdf:resource="http://www.policygrid.org/action.owl#StateChangeAction"/>
+    <rdfs:domain rdf:resource="#PolicyActivation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCondition">
+    <rdfs:range rdf:resource="#PolicyCondition"/>
+    <rdfs:domain rdf:resource="#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#activePolicy">
+    <rdfs:range rdf:resource="#Policy"/>
+    <rdfs:domain rdf:resource="#PolicyActivation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasAuthority">
+    <rdfs:domain rdf:resource="#Policy"/>
+    <rdfs:range rdf:resource="#Authority"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="requireProperty">
+    <rdfs:domain rdf:resource="#InformationRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:subPropertyOf rdf:resource="#requireInformationItem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="requirePredicate">
+    <rdfs:domain rdf:resource="#NLGActionRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subPropertyOf rdf:resource="#requireTriplePart"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="requireSubject">
+    <rdfs:domain rdf:resource="#NLGActionRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subPropertyOf rdf:resource="#requireTriplePart"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="requireObject">
+    <rdfs:domain rdf:resource="#NLGActionRequest"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subPropertyOf rdf:resource="#requireTriplePart"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="requireInstanceOfClass">
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subPropertyOf rdf:resource="#requireInformationItem"/>
+    <rdfs:domain rdf:resource="#InformationRequest"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#basedOnPolicyCondition">
+    <rdfs:range rdf:resource="#PolicyCondition"/>
+    <rdfs:domain rdf:resource="#ActionRequest"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRule">
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:resource="#PolicyCondition"/>
+    <rdfs:domain rdf:resource="#ActivationCondition"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="onDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#PolicyActivation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="policyTitle">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Policy"/>
+  </owl:DatatypeProperty>
+  <spin:RuleProperty rdf:ID="hasConditionRule">
+    <rdfs:range rdf:resource="http://spinrdf.org/sp#Construct"/>
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/spin#rule"/>
+    <rdfs:comment>An inferencing rule attached to a class. Rules are expressed as Construct queries where the variable ?this will be bound to the current instance of the class. These inferences can be used to derive new values from existing values at the instance.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rule</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </spin:RuleProperty>
+  <spin:RuleProperty rdf:ID="hasActivationRule">
+    <rdfs:range rdf:resource="http://spinrdf.org/sp#Construct"/>
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/spin#rule"/>
+    <rdfs:comment>An inferencing rule attached to a class. Rules are expressed as Construct queries where the variable ?this will be bound to the current instance of the class. These inferences can be used to derive new values from existing values at the instance.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rule</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </spin:RuleProperty>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

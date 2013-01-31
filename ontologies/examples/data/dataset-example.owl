@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:prov-policies="http://www.policygrid.org/prov-policies#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:action="http://www.policygrid.org/action.owl#"
+    xmlns:dex="http://example.org/dataset-example.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://example.org/dataset-example.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.policygrid.org/prov-policies"/>
+    <owl:imports rdf:resource="http://www.policygrid.org/action.owl"/>
+    <owl:imports rdf:resource="file:/Users/epignott/Documents/workspace/PolicyReasoner/ontologies/prov-o.n3"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Dataset">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:ID="Author">
+    <rdfs:domain rdf:resource="#Dataset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Location">
+    <rdfs:domain rdf:resource="#Dataset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <dex:Dataset rdf:ID="excel-file-0001">
+    <prov:wasGeneratedBy>
+      <action:UploadResource rdf:ID="uploading-excel-file"/>
+    </prov:wasGeneratedBy>
+    <dex:Author rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Edoardo</dex:Author>
+  </dex:Dataset>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
