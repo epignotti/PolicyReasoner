@@ -1,4 +1,4 @@
 PolicyReasoner
 ==============
 
-A policy reasoner based on OWL and SPIN-SPARQL
+A policy reasoning framework based on OWL and SPIN-SPARQL
